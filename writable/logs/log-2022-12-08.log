@@ -1,0 +1,20 @@
+CRITICAL - 2022-12-08 10:57:47 --> syntax error, unexpected token "public", expecting end of file
+in APPPATH\Models\TransaccionModel.php on line 26.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Models\\TransaccionModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\TransaccionModel')
+ 3 APPPATH\Controllers\API\Transaccion.php(8): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\TransaccionModel')
+ 4 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\API\Transaccion->__construct()
+ 5 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 21:13:31 --> Call to undefined method App\Controllers\Autenticacion::failServerError()
+in APPPATH\Controllers\Autenticacion.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Autenticacion->login()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Autenticacion))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 21:14:01 --> Trait "App\Controllers\CodeIgniter\API\ResponseTrait" not found
+in APPPATH\Controllers\Autenticacion.php on line 3.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

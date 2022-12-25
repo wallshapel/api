@@ -1,0 +1,3 @@
+CRITICAL - 2022-12-05 00:43:00 --> Constant expression contains invalid operations
+in APPPATH\Models\TipoTransaccionModel.php on line 11.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

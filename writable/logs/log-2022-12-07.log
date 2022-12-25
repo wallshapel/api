@@ -1,0 +1,16 @@
+ERROR - 2022-12-07 05:29:34 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`banco`.`transaccion`, CONSTRAINT `transaccion_ibfk_1` FOREIGN KEY (`cuenta_id`) REFERENCES `cuenta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\Legato\Desktop\banco\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\Users\Legato\Desktop\banco\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tr...', 0)
+#1 C:\Users\Legato\Desktop\banco\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tr...')
+#2 C:\Users\Legato\Desktop\banco\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tr...')
+#3 C:\Users\Legato\Desktop\banco\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tr...', Array, false)
+#4 C:\Users\Legato\Desktop\banco\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\Legato\Desktop\banco\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\Legato\Desktop\banco\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\Users\Legato\Desktop\banco\app\Controllers\API\Transaccion.php(18): CodeIgniter\Model->insert(Object(stdClass))
+#8 C:\Users\Legato\Desktop\banco\system\CodeIgniter.php(927): App\Controllers\API\Transaccion->crear()
+#9 C:\Users\Legato\Desktop\banco\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Transaccion))
+#10 C:\Users\Legato\Desktop\banco\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\Legato\Desktop\banco\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\Legato\Desktop\banco\system\Commands\Server\rewrite.php(46): require_once('C:\\Users\\Legato...')
+#13 {main}
