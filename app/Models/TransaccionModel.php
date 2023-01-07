@@ -24,11 +24,11 @@
 		protected $skipValidation = false;
 		public function transaccionesXCliente($id = null) {  // Busca las transacciones del cliente relacionando las tablas: cliente, cuenta, transacción y tipo_transaccion.
 	        $builder = $this->db->table($this->table);
-	        $builder->select('cuenta.id As NumeroCuenta, cliente.nombre, cliente.apellido');
+	        $builder->select('cuenta.id As NumeroCuenta, cliente.nombre, cliente.apellido'); // El select se puede continuar en la línea de abajo.
 	        $builder->select('tipo_transaccion.descripcion AS Tipo, transaccion.monto, transaccion.created_at AS FechaTransaccion');
-	        $builder->join('cuenta',            'transaccion.cuenta_id  = cuenta.id');
-	        $builder->join('tipo_transaccion',  'transaccion.tipo_transaccion_id  = tipo_transaccion.id');
-	        $builder->join('cliente',           'cuenta.cliente_id      = cliente.id');
+	        $builder->join('cuenta',            '		   transaccion.cuenta_id = cuenta.id');
+	        $builder->join('tipo_transaccion',  'transaccion.tipo_transaccion_id = tipo_transaccion.id');
+	        $builder->join('cliente',           '              cuenta.cliente_id = cliente.id');
 	        $builder->where('cliente_id', $id);
 	        $query = $builder->get();
 	        return $query->getResult();
