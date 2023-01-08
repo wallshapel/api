@@ -5,13 +5,22 @@
     class TipoTransaccion extends ResourceController {
         public function __construct() {
             $this->model = $this->setModel(new TipoTransaccionModel());
+            helper('validar_rol');
         }
         public function index() {
-            $tipoTransacciones = $this->model->findAll();
-            return $this->respond($tipoTransacciones);
+            try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
+                $tipoTransacciones = $this->model->findAll();
+                return $this->respond($tipoTransacciones);    
+            } catch (\Exception $e) {
+                return $this->failServerError('Ha ocurrido un error en el servidor.');    
+            }            
         }
         public function editar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $tipoTransaccion = $this->model->find($id);
@@ -24,6 +33,8 @@
         }
         public function crear() {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 $tipoTransaccion = $this->request->getJSON();
                 if ($this->model->insert($tipoTransaccion))
                     return $this->respondCreated($tipoTransaccion);
@@ -35,6 +46,8 @@
         }
         public function actualizar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $tipoTransaccionVerificado = $this->model->find($id);
@@ -53,6 +66,8 @@
         }
         public function eliminar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $tipoTransaccion = $this->model->find($id);

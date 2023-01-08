@@ -6,13 +6,22 @@
     class Roles extends ResourceController {
         public function __construct() {
             $this->model = $this->setModel(new RolModel());
+            helper('validar_rol');
         }
         public function index() {
-            $roles = $this->model->findAll();
-            return $this->respond($roles);
+            try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
+                $roles = $this->model->findAll();
+                return $this->respond($roles);    
+            } catch (\Exception $e) {
+                return $this->failServerError('Ha ocurrido un error en el servidor.');    
+            }            
         }
         public function editar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $rol = $this->model->find($id);
@@ -25,6 +34,8 @@
         }
         public function usuario($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 $modeloUsuario = new UsuarioModel();
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
@@ -39,6 +50,8 @@
         }
         public function crear() {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 $rol = $this->request->getJSON();
                 if ($this->model->insert($rol))
                     return $this->respondCreated($rol);
@@ -50,6 +63,8 @@
         }
         public function actualizar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $clienteVerificado = $this->model->find($id);
@@ -68,6 +83,8 @@
         }
         public function eliminar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $rol = $this->model->find($id);

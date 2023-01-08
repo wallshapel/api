@@ -87,7 +87,7 @@ CREATE TABLE `rol` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `rol` (
 
 LOCK TABLES `rol` WRITE;
 /*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` VALUES (1,'Administrador','2023-01-07 03:01:19','2023-01-07 03:01:19');
+INSERT INTO `rol` VALUES (1,'Administrador','2023-01-07 03:01:19','2023-01-07 03:01:19'),(3,'Cliente','2023-01-08 06:03:01','2023-01-08 06:03:01');
 /*!40000 ALTER TABLE `rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`id`),
   KEY `fk_usuario_rol_idx` (`rol_id`),
   CONSTRAINT `fk_usuario_rol` FOREIGN KEY (`rol_id`) REFERENCES `rol` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,7 +186,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Legato','legato','$2y$10$Bb6bL/eTb7yVCVytZ5kiPOONIMrXpRiTj7X16Jcg2pPsqYO.f6UD.',1,'2023-01-07 03:13:42','2023-01-07 03:14:11');
+INSERT INTO `usuario` VALUES (1,'Legato','legato','$2y$10$Bb6bL/eTb7yVCVytZ5kiPOONIMrXpRiTj7X16Jcg2pPsqYO.f6UD.',1,'2023-01-07 03:13:42','2023-01-07 03:14:11'),(3,'Gersire','catalina','$2y$10$Bb6bL/eTb7yVCVytZ5kiPOONIMrXpRiTj7X16Jcg2pPsqYO.f6UD.',3,'2023-01-08 06:04:05','2023-01-08 06:04:05');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-07 19:27:04
+-- Dump completed on 2023-01-08  2:09:36

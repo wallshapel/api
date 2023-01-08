@@ -3,7 +3,6 @@
     use CodeIgniter\API\ResponseTrait;  // Necesario para envío de respuestas para las API.
     use App\Models\UsuarioModel;
     use Firebase\JWT\JWT;  // Necesario para implementar tokens JWT.
-    use Config\Services;  // Necesario para la llave secreta del token.
     class Autenticacion extends BaseController {
         use ResponseTrait;  // Necesario para envío de respuestas para las API.
         public function __construct() {
@@ -23,17 +22,16 @@
                 } else
                     return  $this->failValidationError('Contraseña incorrecta.');
             } catch (\Exception $e) {
-                //return $this->failServerError('Ha ocurrido un error en el servidor.');
-                return $this->failServerError($e);
+                return $this->failServerError('Ha ocurrido un error en el servidor.');
             }
         }
         protected function generarToken($usuario) {
-            $llave = $llave = getenv('JWT_SECRETO');
+            $llave = $llave = getenv('JWT_SECRETO');  // Esta llave secreta está en el .env
             $tiempo = time(); // Devuelve la fecha y la hora actual en un número entero.
             $payload = [
                 'aud'   => base_url(),
                 'iat'   => $tiempo,  // Fecha de creación del token.
-                'exp'   => $tiempo + 3600,  // Fecha de creación del token más 3600 segundos.
+                'exp'   => $tiempo + 3600,  // Fecha de creación del token, más 3600 segundos.
                 'data'  => [
                     'nombre'    => $usuario['nombre'],
                     'usuario'   => $usuario['usuario'],

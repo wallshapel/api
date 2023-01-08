@@ -7,13 +7,22 @@
     class Transaccion extends ResourceController {
         public function __construct() {
             $this->model = $this->setModel(new TransaccionModel());
+            helper('validar_rol');
         }
         public function index() {
-            $transacciones = $this->model->findAll();
-            return $this->respond($transacciones);
+            if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                return $this->failServerError('Acceso denegado.');
+            try {
+                $transacciones = $this->model->findAll();
+                return $this->respond($transacciones);       
+            } catch (\Exception $e) {
+                return $this->failServerError('Ha ocurrido un error en el servidor.');    
+            }            
         }
         public function editar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $transaccion = $this->model->find($id);
@@ -26,6 +35,8 @@
         }
         public function cliente($id = null) {
             try {
+                if (!validarRol(['Administrador', 'Cliente'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 $modeloCliente = new ClienteModel();
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
@@ -40,6 +51,8 @@
         }
         public function crear() {
             try {
+                if (!validarRol(['Administrador', 'Cliente'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 $transaccion = $this->request->getJSON();
                 if ($this->model->insert($transaccion)) {
                     $transaccion->id = $this->model->insertID();  // insertID() devuelve el id recien ingresado a la base de datos.
@@ -69,6 +82,8 @@
         }
         public function actualizar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $transaccionVerificada = $this->model->find($id);
@@ -87,6 +102,8 @@
         }
         public function eliminar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $transaccion = $this->model->find($id);

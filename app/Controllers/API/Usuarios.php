@@ -5,13 +5,22 @@
     class Usuarios extends ResourceController {
         public function __construct() {
             $this->model = $this->setModel(new UsuarioModel());
+            helper('validar_rol');
         }
         public function index() {
-            $usuarios = $this->model->findAll();
-            return $this->respond($usuarios);
+            try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
+                $usuarios = $this->model->findAll();
+                return $this->respond($usuarios);    
+            } catch (\Exception $e) {      
+                return $this->failServerError('Ha ocurrido un error en el servidor.');     
+            }            
         }
         public function editar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $usuario = $this->model->find($id);
@@ -24,6 +33,8 @@
         }
         public function crear() {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 $usuario = $this->request->getJSON();
                 if ($this->model->insert($usuario))
                     return $this->respondCreated($usuario);
@@ -35,6 +46,8 @@
         }        
         public function actualizar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $cuentaVerificada = $this->model->find($id);
@@ -53,6 +66,8 @@
         }
         public function eliminar($id = null) {
             try {
+                if (!validarRol(['Administrador'], $this->request->getServer('HTTP_AUTHORIZATION')))
+                    return $this->failServerError('Acceso denegado.');
                 if ($id == null) 
                     return $this->failValidationError('Id no válido.');
                 $usuario = $this->model->find($id);
