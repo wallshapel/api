@@ -10,6 +10,18 @@
 			"item": [
 				{
 					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\", data.Token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -18,7 +30,7 @@
 							"formdata": [
 								{
 									"key": "usuario",
-									"value": "catalina",
+									"value": "legato",
 									"type": "default"
 								},
 								{
@@ -42,6 +54,26 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -895,7 +927,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTYxNjA1LCJleHAiOjE2NzMxNjUyMDUsImRhdGEiOnsibm9tYnJlIjoiR2Vyc2lyZSIsInVzdWFyaW8iOiJjYXRhbGluYSIsInJvbCI6IjMifX0.W7JDxAP1Pgw4W7duz9pi2PFX2LL5KfD_NkcfYfMCjRs",
+				"value": "{{token}}",
 				"type": "string"
 			}
 		]
