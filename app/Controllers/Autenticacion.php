@@ -31,10 +31,10 @@
             $llave = $llave = getenv('JWT_SECRETO');
             $tiempo = time(); // Devuelve la fecha y la hora actual en un número entero.
             $payload = [
-                'aud'       => base_url(),
-                'iat'       => $tiempo,  // Fecha de creación del token.
-                'exp'       => $tiempo + 60,  // Fecha de creación del token más 60 segundos.
-                'data'      => [
+                'aud'   => base_url(),
+                'iat'   => $tiempo,  // Fecha de creación del token.
+                'exp'   => $tiempo + 3600,  // Fecha de creación del token más 3600 segundos.
+                'data'  => [
                     'nombre'    => $usuario['nombre'],
                     'usuario'   => $usuario['usuario'],
                     'rol'       => $usuario['rol_id']

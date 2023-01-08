@@ -1,4 +1,5 @@
-<?php namespace App\Models;
+<?php 
+	namespace App\Models;
 	use CodeIgniter\Model;
 	class UsuarioModel extends Model {
 		protected $table 			= 'usuario';
@@ -16,7 +17,7 @@
 		];
 		protected $validationMessages = [
 			'rol_id'	=> [
-				'rol_valido' => 'El Id del cliente no existe.'
+				'rol_valido'	=> 'El Id del rol no existe.'
 			]
 		];
 		protected $skipValidation = false;

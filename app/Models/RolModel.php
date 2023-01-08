@@ -12,5 +12,17 @@
 			'nombre' => 'required|string|min_length[6]|max_length[45]'
 		];
 		protected $skipValidation = false;
-	}
+		public function rolesXUsuario($id = null) {  // Busca el rol de un usuario por su id.
+	        $builder = $this->db->query('
+				SELECT
+				    usuario.usuario, rol.nombre 
+				FROM
+				    banco.usuario
+				JOIN banco.rol on
+				    usuario.rol_id = rol.id
+				WHERE usuario.id = '. $id);
+			$query = $builder->getResultArray();
+	        return $query;
+	    }  
+	}	
 ?>

@@ -1,4 +1,5 @@
-<?php namespace App\Controllers\API;
+<?php 
+    namespace App\Controllers\API;
     use App\Models\TipoTransaccionModel;
     use CodeIgniter\RESTful\ResourceController;
     class TipoTransaccion extends ResourceController {
@@ -9,17 +10,6 @@
             $tipoTransacciones = $this->model->findAll();
             return $this->respond($tipoTransacciones);
         }
-        public function crear() {
-            try {
-                $tipoTransaccion = $this->request->getJSON();
-                if ($this->model->insert($tipoTransaccion))
-                    return $this->respondCreated($tipoTransaccion);
-                else
-                    return $this->failValidationError($this->model->validation->listErrors());
-            } catch (\Exception $e) {
-                return $this->failServerError('Ha ocurrido un error en el servidor.');
-            }
-        }
         public function editar($id = null) {
             try {
                 if ($id == null) 
@@ -28,6 +18,17 @@
                 if ($tipoTransaccion == null)  
                     return $this->failNotFound('No se ha encontrado un tipo de transacción con el Id = '. $id);
                 return $this->respond($tipoTransaccion);
+            } catch (\Exception $e) {
+                return $this->failServerError('Ha ocurrido un error en el servidor.');
+            }
+        }
+        public function crear() {
+            try {
+                $tipoTransaccion = $this->request->getJSON();
+                if ($this->model->insert($tipoTransaccion))
+                    return $this->respondCreated($tipoTransaccion);
+                else
+                    return $this->failValidationError($this->model->validation->listErrors());
             } catch (\Exception $e) {
                 return $this->failServerError('Ha ocurrido un error en el servidor.');
             }

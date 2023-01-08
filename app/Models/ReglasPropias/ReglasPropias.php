@@ -5,7 +5,7 @@
 	use App\Models\TipoTransaccionModel;
 	use App\Models\RolModel;
 	class ReglasPropias {		
-		public function cliente_valido(int $id): bool {  // Este método devuelve un booleano.
+		public function cliente_valido(int $id): bool {
 			$modelo = new ClienteModel();
 			$cliente = $modelo->find($id);
 			return $cliente == null ? false : true;

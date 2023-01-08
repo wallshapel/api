@@ -1,4 +1,5 @@
-<?php namespace App\Controllers\API;
+<?php 
+    namespace App\Controllers\API;
     use App\Models\ClienteModel;
     use CodeIgniter\RESTful\ResourceController;
     class Clientes extends ResourceController {
@@ -8,17 +9,6 @@
         public function index() {
             $clientes = $this->model->findAll();
             return $this->respond($clientes);
-        }
-        public function crear() {
-            try {
-                $cliente = $this->request->getJSON();
-                if ($this->model->insert($cliente))
-                    return $this->respondCreated($cliente);
-                else
-                    return $this->failValidationError($this->model->validation->listErrors());
-            } catch (\Exception $e) {
-                return $this->failServerError('Ha ocurrido un error en el servidor.');
-            }
         }
         public function editar($id = null) {
             try {
@@ -32,6 +22,17 @@
                 return $this->failServerError('Ha ocurrido un error en el servidor.');
             }
         }
+        public function crear() {
+            try {
+                $cliente = $this->request->getJSON();
+                if ($this->model->insert($cliente))
+                    return $this->respondCreated($cliente);
+                else
+                    return $this->failValidationError($this->model->validation->listErrors());
+            } catch (\Exception $e) {
+                return $this->failServerError('Ha ocurrido un error en el servidor.');
+            }
+        }        
         public function actualizar($id = null) {
             try {
                 if ($id == null) 

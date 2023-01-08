@@ -1,0 +1,1173 @@
+{
+	"info": {
+		"_postman_id": "106bc20c-2e69-481d-9ae2-d1ff6d068ba3",
+		"name": "Banco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autenticación",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "usuario",
+									"value": "legato",
+									"type": "default"
+								},
+								{
+									"key": "pass",
+									"value": "123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/banco/autenticacion/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"autenticacion",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMDYyNDYzLCJleHAiOjE2NzMwNjYwNjMsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.wbJxL93-O_RkFwPps2COIvqpD3UJfvA17dIyPf268ts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMDYyNDYzLCJleHAiOjE2NzMwNjYwNjMsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.wbJxL93-O_RkFwPps2COIvqpD3UJfvA17dIyPf268ts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/clientes/editar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"clientes",
+								"editar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMDYyNDYzLCJleHAiOjE2NzMwNjYwNjMsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.wbJxL93-O_RkFwPps2COIvqpD3UJfvA17dIyPf268ts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Karoll\",\r\n    \"apellido\": \"Llinás\",\r\n    \"telefono\": \"3013941053\",\r\n    \"correo\": \"krolita.guerra@nondapibus.co.uk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/clientes/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"clientes",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMDYyNDYzLCJleHAiOjE2NzMwNjYwNjMsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.wbJxL93-O_RkFwPps2COIvqpD3UJfvA17dIyPf268ts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Karoll Lady\",\r\n    \"apellido\": \"Llinás Guerra\",\r\n    \"telefono\": \"3013941053\",\r\n    \"correo\": \"krolita.guerra@nondapibus.co.uk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/clientes/actualizar/102",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"clientes",
+								"actualizar",
+								"102"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMDYyNDYzLCJleHAiOjE2NzMwNjYwNjMsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.wbJxL93-O_RkFwPps2COIvqpD3UJfvA17dIyPf268ts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/clientes/eliminar/102",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"clientes",
+								"eliminar",
+								"102"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cuentas",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMDYyNDYzLCJleHAiOjE2NzMwNjYwNjMsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.wbJxL93-O_RkFwPps2COIvqpD3UJfvA17dIyPf268ts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/cuentas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMDYyNDYzLCJleHAiOjE2NzMwNjYwNjMsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.wbJxL93-O_RkFwPps2COIvqpD3UJfvA17dIyPf268ts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/cuentas/editar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"cuentas",
+								"editar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMDYyNDYzLCJleHAiOjE2NzMwNjYwNjMsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.wbJxL93-O_RkFwPps2COIvqpD3UJfvA17dIyPf268ts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"moneda\": \"PES\",\r\n    \"fondo\": \"0\",\r\n    \"cliente_id\": \"40\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/cuentas/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"cuentas",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMDY2MTQ0LCJleHAiOjE2NzMwNjk3NDQsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.iu_60O8_jmv69tdOus0_a9YyqRTAwlxCy3_ogLVlFRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"moneda\": \"EU\",\r\n    \"fondo\": \"0\",\r\n    \"cliente_id\": \"40\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/cuentas/actualizar/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"cuentas",
+								"actualizar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMDY2MTQ0LCJleHAiOjE2NzMwNjk3NDQsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.iu_60O8_jmv69tdOus0_a9YyqRTAwlxCy3_ogLVlFRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/cuentas/eliminar/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"cuentas",
+								"eliminar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tipos De Transacciones",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTEzMDM2LCJleHAiOjE2NzMxMTY2MzYsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.D1czg6QYyKvFZQr22niiOmY1DTWvvj90XXR5CPbdt1E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/tipo_transaccion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"tipo_transaccion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTEzMDM2LCJleHAiOjE2NzMxMTY2MzYsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.D1czg6QYyKvFZQr22niiOmY1DTWvvj90XXR5CPbdt1E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/tipo_transaccion/editar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"tipo_transaccion",
+								"editar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTEzMDM2LCJleHAiOjE2NzMxMTY2MzYsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.D1czg6QYyKvFZQr22niiOmY1DTWvvj90XXR5CPbdt1E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"Ahorro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/tipo_transaccion/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"tipo_transaccion",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTEzMDM2LCJleHAiOjE2NzMxMTY2MzYsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.D1czg6QYyKvFZQr22niiOmY1DTWvvj90XXR5CPbdt1E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"Abono\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/tipo_transaccion/actualizar/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"tipo_transaccion",
+								"actualizar",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTEzMDM2LCJleHAiOjE2NzMxMTY2MzYsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.D1czg6QYyKvFZQr22niiOmY1DTWvvj90XXR5CPbdt1E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/tipo_transaccion/eliminar/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"tipo_transaccion",
+								"eliminar",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transacciones",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTE3ODkxLCJleHAiOjE2NzMxMjE0OTEsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.6IXZEsiXlXdYtqI6MORrx24dARrPwvQ6is1HwbyM48E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/transaccion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"transaccion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTE3ODkxLCJleHAiOjE2NzMxMjE0OTEsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.6IXZEsiXlXdYtqI6MORrx24dARrPwvQ6is1HwbyM48E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/transaccion/editar/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"transaccion",
+								"editar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Por Cliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTI3NzU4LCJleHAiOjE2NzMxMzEzNTgsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.81R8-uqwzSOHB1xa35wfhS5p8ly5zCOoqnZZA50-1Ug",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/transaccion/cliente/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"transaccion",
+								"cliente",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTE3ODkxLCJleHAiOjE2NzMxMjE0OTEsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.6IXZEsiXlXdYtqI6MORrx24dARrPwvQ6is1HwbyM48E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuenta_id\": \"2\",\r\n    \"tipo_transaccion_id\": \"2\",\r\n    \"monto\": \"200.00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/transaccion/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"transaccion",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTE3ODkxLCJleHAiOjE2NzMxMjE0OTEsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.6IXZEsiXlXdYtqI6MORrx24dARrPwvQ6is1HwbyM48E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuenta_id\": \"2\",\r\n    \"tipo_transaccion_id\": \"2\",\r\n    \"monto\": \"100.00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/transaccion/actualizar/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"transaccion",
+								"actualizar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTE3ODkxLCJleHAiOjE2NzMxMjE0OTEsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.6IXZEsiXlXdYtqI6MORrx24dARrPwvQ6is1HwbyM48E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/transaccion/eliminar/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"transaccion",
+								"eliminar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTIyNzI0LCJleHAiOjE2NzMxMjYzMjQsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.aGVpl6wa4eJIuJTpa7TKLgemnNDnD3k5iI-jYgsQMrA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTI0OTE4LCJleHAiOjE2NzMxMjg1MTgsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.TWpXwI9NLtu0YpxlHhSKYS_PpkM9G4Mnd5IrYqPWUmY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/roles/editar/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"roles",
+								"editar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Por Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTI3NzU4LCJleHAiOjE2NzMxMzEzNTgsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.81R8-uqwzSOHB1xa35wfhS5p8ly5zCOoqnZZA50-1Ug",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/roles/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"roles",
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTI0OTE4LCJleHAiOjE2NzMxMjg1MTgsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.TWpXwI9NLtu0YpxlHhSKYS_PpkM9G4Mnd5IrYqPWUmY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Usuario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/roles/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"roles",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTI0OTE4LCJleHAiOjE2NzMxMjg1MTgsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.TWpXwI9NLtu0YpxlHhSKYS_PpkM9G4Mnd5IrYqPWUmY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Cliente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/roles/actualizar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"roles",
+								"actualizar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTI0OTE4LCJleHAiOjE2NzMxMjg1MTgsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.TWpXwI9NLtu0YpxlHhSKYS_PpkM9G4Mnd5IrYqPWUmY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/roles/eliminar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"roles",
+								"eliminar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/usuarios/editar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"usuarios",
+								"editar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Gersire\",\r\n    \"usuario\": \"catalina\",\r\n    \"pass\": \"$2y$10$Bb6bL/eTb7yVCVytZ5kiPOONIMrXpRiTj7X16Jcg2pPsqYO.f6UD.\",\r\n    \"rol_id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/usuarios/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"usuarios",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Jersire\",\r\n    \"usuario\": \"catalina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/banco/api/usuarios/actualizar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"usuarios",
+								"actualizar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/banco/api/usuarios/eliminar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"banco",
+								"api",
+								"usuarios",
+								"eliminar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2JhbmNvIiwiaWF0IjoxNjczMTM1MzcxLCJleHAiOjE2NzMxMzg5NzEsImRhdGEiOnsibm9tYnJlIjoiTGVnYXRvIiwidXN1YXJpbyI6ImxlZ2F0byIsInJvbCI6IjEifX0.4MjF4RZd02q6HN33oh1B7hbXzhaoRRpnkRZ2hxJlzkA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

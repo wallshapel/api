@@ -1,4 +1,5 @@
-<?php namespace App\Controllers\API;
+<?php 
+    namespace App\Controllers\API;
     use App\Models\TransaccionModel;
     use App\Models\CuentaModel;
     use App\Models\ClienteModel;
@@ -10,6 +11,32 @@
         public function index() {
             $transacciones = $this->model->findAll();
             return $this->respond($transacciones);
+        }
+        public function editar($id = null) {
+            try {
+                if ($id == null) 
+                    return $this->failValidationError('Id no válido.');
+                $transaccion = $this->model->find($id);
+                if ($transaccion == null)  
+                    return $this->failNotFound('No se ha encontrado una transacción con el Id = '. $id);
+                return $this->respond($transaccion);
+            } catch (\Exception $e) {
+                return $this->failServerError('Ha ocurrido un error en el servidor.');
+            }
+        }
+        public function cliente($id = null) {
+            try {
+                $modeloCliente = new ClienteModel();
+                if ($id == null) 
+                    return $this->failValidationError('Id no válido.');
+                $cliente = $modeloCliente->find($id);
+                if ($cliente == null)  
+                    return $this->failNotFound('No se ha encontrado un cliente con el Id = '. $id);
+                $transacciones = $this->model->transaccionesXCliente($id);
+                return $this->respond($transacciones);
+            } catch (\Exception $e) {
+                return $this->failServerError('Ha ocurrido un error en el servidor.');
+            }
         }
         public function crear() {
             try {
@@ -38,19 +65,7 @@
             if ($modeloCuenta->update($cuentaId, $cuenta)) 
                 return array('TransaccionExitosa' => true, 'fondoActual' => $cuenta['fondo']);
             else
-                return array('TransaccionExitosa' => false, 'fondoActual' => $cuenta['fondo']);
-        }
-        public function editar($id = null) {
-            try {
-                if ($id == null) 
-                    return $this->failValidationError('Id no válido.');
-                $transaccion = $this->model->find($id);
-                if ($transaccion == null)  
-                    return $this->failNotFound('No se ha encontrado una transacción con el Id = '. $id);
-                return $this->respond($transaccion);
-            } catch (\Exception $e) {
-                return $this->failServerError('Ha ocurrido un error en el servidor.');
-            }
+                return array('TransaccionFallida' => false, 'fondoActual' => $cuenta['fondo']);
         }
         public function actualizar($id = null) {
             try {
@@ -81,20 +96,6 @@
                     return $this->respondDeleted($transaccion);
                 else
                     return $this->failServerError('No se pudo eliminar el registro.');
-            } catch (\Exception $e) {
-                return $this->failServerError('Ha ocurrido un error en el servidor.');
-            }
-        }
-        public function cliente($id = null) {
-            try {
-                $modeloCliente = new ClienteModel();
-                if ($id == null) 
-                    return $this->failValidationError('Id no válido.');
-                $cliente = $modeloCliente->find($id);
-                if ($cliente == null)  
-                    return $this->failNotFound('No se ha encontrado un cliente con el Id = '. $id);
-                $transacciones = $this->model->transaccionesXCliente($id);
-                return $this->respond($transacciones);
             } catch (\Exception $e) {
                 return $this->failServerError('Ha ocurrido un error en el servidor.');
             }
